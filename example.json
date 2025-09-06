@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Toy Story (토이 스토리)",
+    "resolution": "4K Ultra HD + Blu-ray",
+    "year": 1995,
+    "price": 65500,
+    "maker": "픽사",
+    "limited_edition": false
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "1::Toy Story (1995)": {
+    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Toy%20Story%20%281995%29",
+    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Toy%20Story%20%281995%29",
+    "dvdco": "https://www.dvd.co.kr/shop/shopbrand.html?search=Toy%20Story%20%281995%29",
+    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Toy%20Story%20%281995%29"
+  },
+  "2::Jumanji (1995)": {
+    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Jumanji%20%281995%29",
+    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Jumanji%20%281995%29",
+    "dvdco": "https://www.dvd.co.kr/shop/shopbrand.html?search=Jumanji%20%281995%29",
+    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Jumanji%20%281995%29"
+  },
+  "3::Grumpier Old Men (1995)": {
+    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Grumpier%20Old%20Men%20%281995%29",
+    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Grumpier%20Old%20Men%20%281995%29",
+    "dvdco": "https://www.dvd.co.kr/shop/shopbrand.html?search=Grumpier%20Old%20Men%20%281995%29",
+    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Grumpier%20Old%20Men%20%281995%29"
+  },
+  "4::Waiting to Exhale (1995)": {
+    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Waiting%20to%20Exhale%20%281995%29",
+    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Waiting%20to%20Exhale%20%281995%29",
+    "dvdco": "https://www.dvd.co.kr/shop/shopbrand.html?search=Waiting%20to%20Exhale%20%281995%29",
+    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Waiting%20to%20Exhale%20%281995%29"
+  },
+  "5::Father of the Bride Part II (1995)": {
+    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Father%20of%20the%20Bride%20Part%20II%20%281995%29",
+    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Father%20of%20the%20Bride%20Part%20II%20%281995%29",
+    "dvdco": "https://www.dvd.co.kr/shop/shopbrand.html?search=Father%20of%20the%20Bride%20Part%20II%20%281995%29",
+    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Father%20of%20the%20Bride%20Part%20II%20%281995%29"
+  }
+}

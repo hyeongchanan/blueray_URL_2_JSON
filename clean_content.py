@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 
 #url 입력받아서 상품 정보텍스트를 추출
 def clean_content(url):
+    
+
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
     
@@ -64,26 +66,21 @@ def clean_content(url):
     for tag in soup.find_all():
         if not tag.text.strip() and not tag.attrs:
             remove_empty_parents(tag)
-    
     return soup.get_text(separator='\n', strip=True)
 
 # 사용 예시
-#알라딘
-url = 'https://www.yes24.com/product/search?domain=DVD&query=%25EB%25A6%25B4%25EB%25A1%259C%25EC%2599%2580%2520%25EC%258A%25A4%25ED%258B%25B0%25EC%25B9%2598%2520%25EB%25B8%2594%25EB%25A3%25A8%25EB%25A0%2588%25EC%259D%25B4'
-#yes24
-url2='https://www.yes24.com/product/search?domain=ALL&query=%25EB%25A6%25B4%25EB%25A1%259C%25EC%2599%2580%2520%25EC%258A%25A4%25ED%258B%25B0%25EC%25B9%2598%2520%25EB%25B8%2594%25EB%25A3%25A8%25EB%25A0%2588%25EC%259D%25B4'
-#G마켓
-url3='https://minishop.gmarket.co.kr/yes24/List?Category=300020728&CategoryType=General&SortType=NewlyListed&DisplayType=SmallImage&Page=0&PageSize=60&IsFreeShipping=False&HasDiscount=False&HasStamp=False&HasMileage=False&IsInternationalShipping=False&MinPrice=200&MaxPrice=14838800'
+#쿠팡
+url = 'https://www.yes24.com/product/search?domain=ALL&query=Toy%20Story%20%281995%29'
+url1 ="https://www.yes24.com/product/search?domain=ALL&query=Grumpier%20Old%20Men%20%281995%29"
+url2 ="https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Toy%20Story%20%281995%29"
+url3="https://www.dvd.co.kr/shop/shopbrand.html?search=Toy%20Story%20%281995%29"
+url4="https://search.kyobobook.co.kr/search?keyword=Toy%20Story%20%281995%29"
 
-#페이시아    잘 안됨 상품명이 아랍어? 로 나옴
-url4='https://www.peysia.co.kr/shop/shopbrand.html?search=%BA%ED%B7%E7%B7%B9%C0%CC&refer=https:'
-
-#김치 디비디
-url5='https://kr.kimchidvd.com:444/kr/goods/search.kimchi?searchWrd=%EB%B8%94%EB%A3%A8%EB%A0%88%EC%9D%B4&media=&searchCnd=kor_title'
-#교보문고
-url6='https://search.kyobobook.co.kr/search?keyword=%EB%B8%94%EB%A3%A8%EB%A0%88%EC%9D%B4&gbCode=TOT&target=total'
-
-#11번가
-url7='https://shop.11st.co.kr/stores/340289/category?isCategory=true&categoryType=DISPLAY&dispCtgrNo=3141&largeCtgrNo=2967&middleCtgrNo=3141&sortCd=N&filter=&pageNo=1'
 cleaned_text = clean_content(url)
-#print(cleaned_text)
+text = "안녕하세요! 이것은 파일에 쓰는 예제입니다."
+
+# 'w' 모드는 파일을 새로 쓰거나 기존 내용을 덮어씀
+with open("example.txt", "w", encoding="utf-8") as f:
+    f.write(cleaned_text)
+
+print("파일에 텍스트가 저장되었습니다.")
