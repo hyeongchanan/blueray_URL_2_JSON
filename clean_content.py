@@ -20,10 +20,11 @@ def clean_content(url):
     # 2. 속성 기반 제거 (CSS 선택자 사용)
     attribute_selectors = [
         # yes 24 용 제거 id
-        '[id*="trend"]', '[class*="trend"]',
-        '[id*="filter"]', '[class*="filter"]',
-        '[id*="Filter"]', '[class*="Filter"]',
-        '[id*="Header"]', '[class*="Header"]',
+        '[id*="trend"]',    '[class*="trend"]',
+        '[id*="filter"]',   '[class*="filter"]',
+        '[id*="Filter"]',   '[class*="Filter"]',
+        '[id*="Header"]',   '[class*="Header"]',
+        '[id*="ySchTab"]',  '[class*="ySchTab"]'
 
         # 알라딘용 제거 id
         '[id*="Search3_Left_Division"]', '[class*="Search3_Left_Division"]',

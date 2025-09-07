@@ -2,101 +2,1083 @@
   "1::Toy Story (1995)": {
     "yes24": [
       {
-        "id": 1,
         "name": "Toy Story",
-        "resolution": "4K",
+        "resolution": "4K Ultra HD + Blu-ray",
         "year": 1995,
         "price": 65500,
         "maker": "N/A",
-        "limited_edition": false
+        "id": 1
+      },
+      {
+        "name": "Toy Story",
+        "resolution": "Blu-ray 3D + Blu-ray + DVD",
+        "year": 1995,
+        "price": 95300,
+        "maker": "N/A",
+        "id": 2
+      },
+      {
+        "name": "Toy Story",
+        "resolution": "Two-Disc Special Edition Blu-ray/DVD Combo in Blu-ray Packaging",
+        "year": 1995,
+        "price": 62800,
+        "maker": "N/A",
+        "id": 3
       }
     ],
-    "aladin": null,
-    "dvdco": null,
-    "kyobo": null
-  },
-  "2::Jumanji (1995)": {
-    "yes24": null,
-    "aladin": null,
-    "dvdco": null,
-    "kyobo": [
-      {
-        "id": "N/A",
-        "name": "Jumanji",
-        "resolution": "N/A",
-        "year": 1995,
-        "price": "N/A",
-        "maker": "N/A",
-        "limited_edition": false
-      }
-    ]
-  },
-  "3::Grumpier Old Men (1995)": {
-    "yes24": [
-      {
-        "id": 1,
-        "name": "Grumpy Old Men/Grumpier Old Men",
-        "resolution": "N/A",
-        "year": 2010,
-        "price": 39400,
-        "maker": "N/A",
-        "limited_edition": false
-      }
-    ],
-    "aladin": null,
-    "dvdco": null,
-    "kyobo": [
-      {
-        "id": "N/A",
-        "name": "Grumpier Old Men",
-        "resolution": "N/A",
-        "year": 1995,
-        "price": "N/A",
-        "maker": "N/A",
-        "limited_edition": false
-      }
-    ]
-  },
-  "4::Waiting to Exhale (1995)": {
-    "yes24": [
-      {
-        "id": "N/A",
-        "name": "Waiting to Exhale",
-        "resolution": "N/A",
-        "year": 1995,
-        "price": "N/A",
-        "maker": "N/A",
-        "limited_edition": false
-      }
-    ],
-    "aladin": null,
-    "dvdco": null,
-    "kyobo": [
-      {
-        "id": "N/A",
-        "name": "Waiting to Exhale",
-        "resolution": "N/A",
-        "year": 1995,
-        "price": "N/A",
-        "maker": "N/A",
-        "limited_edition": false
-      }
-    ]
-  },
-  "5::Father of the Bride Part II (1995)": {
-    "yes24": null,
     "aladin": [
       {
-        "id": "N/A",
-        "name": "알라딘",
+        "name": "Toy Story",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 65500,
+        "maker": "Walt Disney Video",
+        "id": 4
+      },
+      {
+        "name": "Toy Story 2",
         "resolution": "N/A",
         "year": "N/A",
         "price": "N/A",
         "maker": "N/A",
-        "limited_edition": "N/A"
+        "id": 5
+      },
+      {
+        "name": "Toy Story 3",
+        "resolution": "N/A",
+        "year": "N/A",
+        "price": "N/A",
+        "maker": "N/A",
+        "id": 6
+      },
+      {
+        "name": "Toy Story 4",
+        "resolution": "N/A",
+        "year": "N/A",
+        "price": "N/A",
+        "maker": "N/A",
+        "id": 7
       }
     ],
-    "dvdco": null,
     "kyobo": null
+  },
+  "2::Jumanji (1995)": {
+    "yes24": [
+      {
+        "name": "Jumanji (쥬만지)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 60800,
+        "maker": "N/A",
+        "id": 8
+      }
+    ],
+    "aladin": [
+      {
+        "name": "쥬만지",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 2015,
+        "price": 25300,
+        "maker": "소니픽쳐스",
+        "id": 9
+      },
+      {
+        "name": "Jumanji (쥬만지) (1995)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 2017,
+        "price": 60800,
+        "maker": "Sony Pictures",
+        "id": 10
+      }
+    ],
+    "kyobo": null
+  },
+  "3::Grumpier Old Men (1995)": {
+    "yes24": [
+      {
+        "name": "Grumpy Old Men",
+        "resolution": "Blu-ray",
+        "year": 1993,
+        "price": 47700,
+        "maker": "N/A",
+        "id": 11
+      },
+      {
+        "name": "Grumpy Old Men/Grumpier Old Men (Double Feature)",
+        "resolution": "Blu-ray",
+        "year": 2010,
+        "price": 39400,
+        "maker": "N/A",
+        "id": 12
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "4::Waiting to Exhale (1995)": {
+    "yes24": null,
+    "aladin": null,
+    "kyobo": null
+  },
+  "5::Father of the Bride Part II (1995)": {
+    "yes24": [
+      {
+        "name": "Father of the Bride (신부와 아버지) (20th Anniversary Edition) / Father of the Bride: Part II",
+        "resolution": "Blu-ray",
+        "year": 1991,
+        "price": 49400,
+        "maker": "N/A",
+        "id": 13
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "6::Heat (1995)": {
+    "yes24": [
+      {
+        "name": "Heat (Ultimate Collector's Edition) (히트)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 59600,
+        "maker": "N/A",
+        "id": 14
+      }
+    ],
+    "aladin": [
+      {
+        "name": "히트",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 2014,
+        "price": 31900,
+        "maker": "워너브라더스",
+        "id": 15
+      },
+      {
+        "name": "Al Pacino - Heat (Ultimate Collector's Edition) (히트)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 2022,
+        "price": 59600,
+        "maker": "20th Century Studios",
+        "id": 16
+      }
+    ],
+    "kyobo": null
+  },
+  "7::Sabrina (1995)": {
+    "yes24": [
+      {
+        "name": "Sabrina",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1954,
+        "price": 77200,
+        "maker": "N/A",
+        "id": 17
+      },
+      {
+        "name": "Sabrina",
+        "resolution": "Blu-ray",
+        "year": "N/A",
+        "price": 33100,
+        "maker": "N/A",
+        "id": 18
+      },
+      {
+        "name": "La Llorona (The Weeping Woman)",
+        "resolution": "Blu-ray",
+        "year": 2019,
+        "price": 71400,
+        "maker": "N/A",
+        "id": 19
+      },
+      {
+        "name": "2017년 레아테 페스티벌 실황 Gabriele Bonolis 니노 로타: 잠 못 이루는 밤, 어리숙한 두 사람 (Rota: La notte, di un di un Nevrastenico)",
+        "resolution": "Blu-ray",
+        "year": "N/A",
+        "price": 57700,
+        "maker": "N/A",
+        "id": 20
+      },
+      {
+        "name": "Sabrina",
+        "resolution": "Blu-ray",
+        "year": 1954,
+        "price": 40800,
+        "maker": "N/A",
+        "id": 21
+      },
+      {
+        "name": "Olga",
+        "resolution": "Blu-ray",
+        "year": 2021,
+        "price": 53200,
+        "maker": "N/A",
+        "id": 22
+      },
+      {
+        "name": "Hells Angels on Wheels",
+        "resolution": "Blu-ray",
+        "year": "N/A",
+        "price": 51700,
+        "maker": "N/A",
+        "id": 23
+      },
+      {
+        "name": "The Cheetah Girls: One World (Extended Music Edition)",
+        "resolution": "Blu-ray",
+        "year": 2008,
+        "price": 23900,
+        "maker": "N/A",
+        "id": 24
+      },
+      {
+        "name": "Knightfall: Season 1",
+        "resolution": "Blu-ray",
+        "year": "N/A",
+        "price": 61800,
+        "maker": "N/A",
+        "id": 25
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "8::Tom and Huck (1995)": {
+    "yes24": [
+      {
+        "name": "The Quick And The Dead (퀵 앤 데드)",
+        "resolution": "4K Ultra HD + Blu-ray + Digital",
+        "year": 1995,
+        "price": 60800,
+        "maker": "N/A",
+        "id": 26
+      },
+      {
+        "name": "The Quick and the Dead (퀵 앤 데드)",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 27200,
+        "maker": "N/A",
+        "id": 27
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "9::Sudden Death (1995)": {
+    "yes24": [
+      {
+        "name": "Sudden Death (서든 데쓰)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 68900,
+        "maker": "N/A",
+        "id": 28
+      },
+      {
+        "name": "Sudden Death (서든 데스)",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 40800,
+        "maker": "N/A",
+        "id": 29
+      }
+    ],
+    "aladin": [
+      {
+        "name": "Sudden Death (서든 데쓰)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 68900,
+        "maker": "KL Studio Classics",
+        "id": 30
+      }
+    ],
+    "kyobo": null
+  },
+  "10::GoldenEye (1995)": {
+    "yes24": [
+      {
+        "name": "GoldenEye (007 골든 아이)",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 32500,
+        "maker": "N/A",
+        "id": 31
+      }
+    ],
+    "aladin": [
+      {
+        "name": "007 골든 아이",
+        "resolution": "N/A",
+        "year": 2012,
+        "price": 20900,
+        "maker": "20세기폭스",
+        "id": 32
+      },
+      {
+        "name": "007 골든 아이 - 뉴 슬리브",
+        "resolution": "N/A",
+        "year": 2012,
+        "price": 20900,
+        "maker": "20세기폭스",
+        "id": 33
+      }
+    ],
+    "kyobo": null
+  },
+  "11::American President, The (1995)": {
+    "yes24": null,
+    "aladin": null,
+    "kyobo": null
+  },
+  "12::Dracula: Dead and Loving It (1995)": {
+    "yes24": [
+      {
+        "name": "Dracula: Dead and Loving It",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 58300,
+        "maker": "N/A",
+        "id": 34
+      }
+    ],
+    "aladin": [
+      {
+        "name": "Leslie Nielsen - Dracula: Dead and Loving It (못말리는 드라큐라)",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 58300,
+        "maker": "Scream Factory",
+        "id": 35
+      }
+    ],
+    "kyobo": null
+  },
+  "13::Balto (1995)": {
+    "yes24": [
+      {
+        "name": "Things to Do in Denver When You're Dead",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 77200,
+        "maker": "N/A",
+        "id": 36
+      },
+      {
+        "name": "Things to Do in Denver When You're Dead",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 43900,
+        "maker": "N/A",
+        "id": 37
+      },
+      {
+        "name": "To Die For (The Criterion Collection)",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 71400,
+        "maker": "N/A",
+        "id": 38
+      },
+      {
+        "name": "To Die For",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 27000,
+        "maker": "N/A",
+        "id": 39
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "14::Nixon (1995)": {
+    "yes24": [
+      {
+        "name": "Nixon",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 68700,
+        "maker": "N/A",
+        "id": 40
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "15::Cutthroat Island (1995)": {
+    "yes24": [
+      {
+        "name": "Cutthroat Island",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 27800,
+        "maker": "N/A",
+        "id": 41
+      }
+    ],
+    "aladin": [
+      {
+        "name": "Cutthroat Island",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 27800,
+        "maker": "Lions Gate",
+        "id": 42
+      }
+    ],
+    "kyobo": null
+  },
+  "16::Casino (1995)": {
+    "yes24": [
+      {
+        "name": "Casino",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 26600,
+        "maker": "N/A",
+        "id": 43
+      },
+      {
+        "name": "Casino",
+        "resolution": "4K Ultra HD + Blu-ray + Digital",
+        "year": 1995,
+        "price": 45200,
+        "maker": "N/A",
+        "id": 44
+      },
+      {
+        "name": "Casino",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 23900,
+        "maker": "N/A",
+        "id": 45
+      },
+      {
+        "name": "The Gangster Collection : American Gangster/Casino/Eastern Promises",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 80200,
+        "maker": "N/A",
+        "id": 46
+      },
+      {
+        "name": "Casino",
+        "resolution": "Blu-ray + DVD + Digital Copy",
+        "year": 1995,
+        "price": 23900,
+        "maker": "N/A",
+        "id": 47
+      }
+    ],
+    "aladin": [
+      {
+        "name": "Casino (카지노)",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 26600,
+        "maker": "Universal Studios",
+        "id": 48
+      },
+      {
+        "name": "Casino (카지노)",
+        "resolution": "4K Ultra HD + Blu-ray + Digital",
+        "year": 1995,
+        "price": 45200,
+        "maker": "Universal Studios",
+        "id": 49
+      }
+    ],
+    "kyobo": null
+  },
+  "17::Sense and Sensibility (1995)": {
+    "yes24": null,
+    "aladin": null,
+    "kyobo": null
+  },
+  "18::Four Rooms (1995)": {
+    "yes24": [
+      {
+        "name": "The Secret Of The Blue Room",
+        "resolution": "N/A",
+        "year": 1933,
+        "price": 45900,
+        "maker": "N/A",
+        "id": 50
+      },
+      {
+        "name": "Black Room",
+        "resolution": "N/A",
+        "year": "N/A",
+        "price": 45900,
+        "maker": "N/A",
+        "id": 51
+      },
+      {
+        "name": "The Kill Room",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 2023,
+        "price": 70800,
+        "maker": "N/A",
+        "id": 52
+      },
+      {
+        "name": "Boiler Room",
+        "resolution": "N/A",
+        "year": 2000,
+        "price": 26300,
+        "maker": "N/A",
+        "id": 53
+      },
+      {
+        "name": "Room",
+        "resolution": "N/A",
+        "year": "N/A",
+        "price": 43200,
+        "maker": "N/A",
+        "id": 54
+      },
+      {
+        "name": "Room 666 / Room 999",
+        "resolution": "N/A",
+        "year": "N/A",
+        "price": 54200,
+        "maker": "Janus Contemporaries",
+        "id": 55
+      },
+      {
+        "name": "Tadokoro Azusa - Live 2023 -Private Room- Live Blu-ray",
+        "resolution": "N/A",
+        "year": 2024,
+        "price": 210600,
+        "maker": "N/A",
+        "id": 56
+      },
+      {
+        "name": "Room 237",
+        "resolution": "N/A",
+        "year": 2012,
+        "price": 58300,
+        "maker": "N/A",
+        "id": 57
+      },
+      {
+        "name": "Escape Room: Tournament Of Champions",
+        "resolution": "N/A",
+        "year": 2021,
+        "price": 44400,
+        "maker": "N/A",
+        "id": 58
+      },
+      {
+        "name": "Wire Room",
+        "resolution": "N/A",
+        "year": 2022,
+        "price": 41900,
+        "maker": "N/A",
+        "id": 59
+      },
+      {
+        "name": "Green Room",
+        "resolution": "N/A",
+        "year": "N/A",
+        "price": 27800,
+        "maker": "N/A",
+        "id": 60
+      },
+      {
+        "name": "The Music Room",
+        "resolution": "N/A",
+        "year": 1958,
+        "price": 71400,
+        "maker": "The Criterion Collection",
+        "id": 61
+      },
+      {
+        "name": "White Room",
+        "resolution": "N/A",
+        "year": 1990,
+        "price": 52100,
+        "maker": "N/A",
+        "id": 62
+      },
+      {
+        "name": "War Room",
+        "resolution": "N/A",
+        "year": "N/A",
+        "price": 27700,
+        "maker": "N/A",
+        "id": 63
+      },
+      {
+        "name": "The Kill Room",
+        "resolution": "N/A",
+        "year": 2023,
+        "price": 51600,
+        "maker": "N/A",
+        "id": 64
+      },
+      {
+        "name": "Escape Room",
+        "resolution": "N/A",
+        "year": 2019,
+        "price": 39000,
+        "maker": "N/A",
+        "id": 65
+      },
+      {
+        "name": "Serizawa Yu - 5th Live Tour 2024 ~My Room Fantasy~",
+        "resolution": "N/A",
+        "year": 2025,
+        "price": 192800,
+        "maker": "N/A",
+        "id": 66
+      },
+      {
+        "name": "Enron - The Smartest Guys in the Room",
+        "resolution": "N/A",
+        "year": 2006,
+        "price": 32800,
+        "maker": "N/A",
+        "id": 67
+      },
+      {
+        "name": "Level 1: Demon Lord & One Room Hero - Complete Collection",
+        "resolution": "N/A",
+        "year": 2023,
+        "price": 108700,
+        "maker": "N/A",
+        "id": 68
+      },
+      {
+        "name": "Forbidden Room",
+        "resolution": "N/A",
+        "year": "N/A",
+        "price": 63500,
+        "maker": "N/A",
+        "id": 69
+      },
+      {
+        "name": "Glay - Arena Tour 2019-2020 Democracy 25th Hotel Glay The Suite Room In Yokohama Arena",
+        "resolution": "N/A",
+        "year": 2020,
+        "price": 102900,
+        "maker": "N/A",
+        "id": 70
+      },
+      {
+        "name": "A Room with a View",
+        "resolution": "N/A",
+        "year": "N/A",
+        "price": 71400,
+        "maker": "N/A",
+        "id": 71
+      },
+      {
+        "name": "Red Velvet - 1st Concert 'Red Room' In Japan",
+        "resolution": "N/A",
+        "year": 2018,
+        "price": 118800,
+        "maker": "N/A",
+        "id": 72
+      },
+      {
+        "name": "Panic Room",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 2002,
+        "price": 79800,
+        "maker": "N/A",
+        "id": 73
+      },
+      {
+        "name": "The War Room : The Criterion Collection",
+        "resolution": "N/A",
+        "year": 2012,
+        "price": 44,
+        "maker": "N/A",
+        "id": 74
+      }
+    ],
+    "aladin": [
+      {
+        "name": "포 룸",
+        "resolution": "N/A",
+        "year": 2016,
+        "price": 26700,
+        "maker": "N/A",
+        "id": 75
+      }
+    ],
+    "kyobo": null
+  },
+  "19::Ace Ventura: When Nature Calls (1995)": {
+    "yes24": null,
+    "aladin": null,
+    "kyobo": null
+  },
+  "20::Money Train (1995)": {
+    "yes24": [
+      {
+        "name": "Money Train (머니 트레인)",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 32400,
+        "maker": "N/A",
+        "id": 76
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "21::Get Shorty (1995)": {
+    "yes24": [
+      {
+        "name": "Get Shorty",
+        "resolution": "Blu-ray",
+        "year": "N/A",
+        "price": 63500,
+        "maker": "N/A",
+        "id": 77
+      },
+      {
+        "name": "Get Shorty / Be Cool the Big Hit Collection",
+        "resolution": "Blu-ray",
+        "year": "N/A",
+        "price": 37700,
+        "maker": "N/A",
+        "id": 78
+      },
+      {
+        "name": "Get Shorty",
+        "resolution": "Blu-ray",
+        "year": "N/A",
+        "price": 24200,
+        "maker": "N/A",
+        "id": 79
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "22::Copycat (1995)": {
+    "yes24": [
+      {
+        "name": "Babe (꼬마 돼지 베이브)",
+        "resolution": "Blu-ray + DVD + Digital Copy",
+        "year": 1995,
+        "price": 32000,
+        "maker": "N/A",
+        "id": 80
+      },
+      {
+        "name": "Toy Story (토이스토리)",
+        "resolution": "Blu-ray 3D + Blu-ray + DVD Combo + Digital Copy",
+        "year": 1995,
+        "price": 95300,
+        "maker": "N/A",
+        "id": 81
+      },
+      {
+        "name": "Casino (카지노)",
+        "resolution": "Blu-ray + DVD + Digital Copy",
+        "year": 1995,
+        "price": 23900,
+        "maker": "N/A",
+        "id": 82
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "23::Assassins (1995)": {
+    "yes24": null,
+    "aladin": null,
+    "kyobo": null
+  },
+  "24::Powder (1995)": {
+    "yes24": [
+      {
+        "name": "Sudden Death (서든 데쓰)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 68900,
+        "maker": "N/A",
+        "id": 83
+      },
+      {
+        "name": "Sudden Death (서든 데스)",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 40800,
+        "maker": "N/A",
+        "id": 84
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "25::Leaving Las Vegas (1995)": {
+    "yes24": [
+      {
+        "name": "Leaving Las Vegas (라스베가스를 떠나며)",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 52100,
+        "maker": "N/A",
+        "id": 85
+      },
+      {
+        "name": "Leaving Las Vegas (라스베가스를 떠나며)",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 33800,
+        "maker": "N/A",
+        "id": 86
+      }
+    ],
+    "aladin": [
+      {
+        "name": "Leaving Las Vegas",
+        "resolution": "Blu-ray",
+        "year": 1995,
+        "price": 52100,
+        "maker": "Various Artists | Sandpiper Pictures",
+        "id": 87
+      }
+    ],
+    "kyobo": null
+  },
+  "26::Othello (1995)": {
+    "yes24": [
+      {
+        "name": "Smoke (스모크) / Blue in the Face (블루 인 더 페이스)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 85500,
+        "maker": "N/A",
+        "id": 88
+      },
+      {
+        "name": "Blue in the Face (블루 인 더 페이스)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 52100,
+        "maker": "N/A",
+        "id": 89
+      },
+      {
+        "name": "The Halloween 4K Collection (할로윈 1995-2002)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": "1995-2002",
+        "price": 247900,
+        "maker": "N/A",
+        "id": 90
+      },
+      {
+        "name": "The Usual Suspects (유주얼 서스펙트)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 68900,
+        "maker": "N/A",
+        "id": 91
+      },
+      {
+        "name": "Village of the Damned (Collector's Edition) (저주받은 도시)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 78500,
+        "maker": "N/A",
+        "id": 92
+      },
+      {
+        "name": "Totally F***ed Up (The Criterion Collection) / The Doom Generation (둠 제너레이션)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": "1993-1995",
+        "price": 174700,
+        "maker": "N/A",
+        "id": 93
+      },
+      {
+        "name": "The Day Of The Beast (El Dia De La Bestia)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 89700,
+        "maker": "N/A",
+        "id": 94
+      },
+      {
+        "name": "Gold Diggers: The Secret Of Bear Mountain (베어 마운틴의 비밀)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 23900,
+        "maker": "N/A",
+        "id": 95
+      },
+      {
+        "name": "The Bridges of Madison County (매디슨 카운티의 다리)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 39800,
+        "maker": "N/A",
+        "id": 96
+      },
+      {
+        "name": "The Quick And The Dead (퀵 앤 데드)",
+        "resolution": "4K Ultra HD + Blu-ray + Digital",
+        "year": 1995,
+        "price": 60800,
+        "maker": "N/A",
+        "id": 97
+      },
+      {
+        "name": "The Brady Bunch: 2-Movie Collection (브래디 번치: 2 무비 컬렉션)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 52300,
+        "maker": "N/A",
+        "id": 98
+      },
+      {
+        "name": "Sailor Moon Super S: The Movie (세일러 문 슈퍼 S: 더 무비)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 51000,
+        "maker": "N/A",
+        "id": 99
+      },
+      {
+        "name": "The Cure (Goodbye My Friend) (굿바이 마이 프랜드)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 24600,
+        "maker": "N/A",
+        "id": 100
+      },
+      {
+        "name": "Totally F***ed Up / The Doom Generation (완전히 엿먹은)",
+        "resolution": "N/A",
+        "year": "1993-1995",
+        "price": 123400,
+        "maker": "N/A",
+        "id": 101
+      },
+      {
+        "name": "To Die For (The Criterion Collection) (투 다이 포)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 71400,
+        "maker": "N/A",
+        "id": 102
+      },
+      {
+        "name": "La haine (The Criterion Collection) (증오)",
+        "resolution": "4K Ultra HD + Blu-ray",
+        "year": 1995,
+        "price": 88700,
+        "maker": "N/A",
+        "id": 103
+      },
+      {
+        "name": "The Doom Generation (둠 제너레이션)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 40000,
+        "maker": "N/A",
+        "id": 104
+      },
+      {
+        "name": "Last Of The Dogmen (라스트 도그맨)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 53600,
+        "maker": "N/A",
+        "id": 105
+      },
+      {
+        "name": "The Underneath (언더니스)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 45900,
+        "maker": "N/A",
+        "id": 106
+      },
+      {
+        "name": "Embrace of the Vampire (뱀파이어)",
+        "resolution": "N/A",
+        "year": 1995,
+        "price": 33100,
+        "maker": "N/A",
+        "id": 107
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "27::Now and Then (1995)": {
+    "yes24": [
+      {
+        "name": "Foreigner - Double Vision: Then And Now (Blu-ray+CD Edition)",
+        "resolution": "Blu-ray",
+        "year": 2019,
+        "price": 40500,
+        "maker": "N/A",
+        "id": 108
+      },
+      {
+        "name": "Foreigner - Double Vision: Then And Now (Blu-ray+CD Edition)",
+        "resolution": "Blu-ray",
+        "year": 2019,
+        "price": 50200,
+        "maker": "N/A",
+        "id": 109
+      },
+      {
+        "name": "Foreigner - Double Vision: Then And Now (Blu-ray+CD Edition)",
+        "resolution": "Blu-ray",
+        "year": 2019,
+        "price": 49800,
+        "maker": "N/A",
+        "id": 110
+      }
+    ],
+    "aladin": null,
+    "kyobo": null
+  },
+  "28::Persuasion (1995)": {
+    "yes24": null,
+    "aladin": null,
+    "kyobo": null
+  },
+  "29::City of Lost Children, The (Cité des enfants perdus, La) (1995)": {
+    "yes24": null,
+    "aladin": null,
+    "kyobo": null
+  },
+  "30::Shanghai Triad (Yao a yao yao dao waipo qiao) (1995)": {
+    "yes24": null,
+    "aladin": null,
+    "kyobo": null
+  },
+  "31::Dangerous Minds (1995)": {
+    "yes24": [
+      {
+        "name": "Enter The Dangerous Mind",
+        "resolution": "N/A",
+        "year": "N/A",
+        "price": 52900,
+        "maker": "N/A",
+        "id": 111
+      },
+      {
+        "name": "Confessions Of A Dangerous Mind",
+        "resolution": "N/A",
+        "year": 2002,
+        "price": 23900,
+        "maker": "N/A",
+        "id": 112
+      }
+    ]
   }
 }
