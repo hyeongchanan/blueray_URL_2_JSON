@@ -4,7 +4,7 @@ from clean_content_extract import clean_content_extract
 from openAiApi import summarize_text
 
 INPUT_FILE = "search_links.json"
-OUTPUT_FILE = "blueray_summary2.json"
+OUTPUT_FILE = "blueray_summary.json"
 
 # 기존 저장된 결과 불러오기 (있으면 이어서)
 if os.path.exists(OUTPUT_FILE):
