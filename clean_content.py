@@ -1,87 +1,120 @@
 import requests
 from bs4 import BeautifulSoup
 
+yes_selector = 'div.itemUnit'
+
+yes_name = 'a.gd_name'
+yes_lnk = 'a.lnk_img'
+yes_img = 'img.gImg'
+yes_price = 'em.yes_b'
+
+ala_selector = 'div.ss_book_box'
+
+ala_name_lnk = 'a.bo3'
+#ala_lnk = 'a.bo3'
+ala_img = 'img.i_cover'
+ala_price = 'ss_p2'
 
 
-#url 입력받아서 상품 정보텍스트를 추출
-def clean_content(url):
-    
+kyo_selectors = [
+    'ul.prod_list div.horizontal'
+]
+
+yes_detail_selectors =[
+    '*.bgYUI',
+    'span.yPoint',
+    'span.iconC',
+    'em.yes_b',
+    'span.authPub',
+]
+
+ala_remove_selectors = [
+    'span.ss_p',
+
+]
+
+kyo_remove_selectors = [
+    'div.auto_overflow_footer',
+    'span.date',
+    'span.price_normal',
+    'span.percent',
+    'span.point',
+    'div.prod_bottom',
+    'div.auto_overflow_footer',
+    'div.prod_thumb_box',
+    'ul.swiper-wrapper'
+]
+
+def clean_content_extract2(url):
 
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
     
-    # 1. 기본 태그 제거
-    base_tags = ['header', 'footer', 'nav', 'aside', 'script', 
-                'style', 'noscript','button']
-    for tag in base_tags:
-        for element in soup.find_all(tag):
-            element.decompose()
-    
-    # 2. 속성 기반 제거 (CSS 선택자 사용)
-    attribute_selectors = [
-        # yes 24 용 제거 id
-        '[id*="trend"]',    '[class*="trend"]',
-        '[id*="filter"]',   '[class*="filter"]',
-        '[id*="Filter"]',   '[class*="Filter"]',
-        '[id*="Header"]',   '[class*="Header"]',
-        '[id*="ySchTab"]',  '[class*="ySchTab"]'
+    extracted_texts = []
 
-        # 알라딘용 제거 id
-        '[id*="Search3_Left_Division"]', '[class*="Search3_Left_Division"]',
-        '[id*="nav"]', '[class*="nav"]',
-        '[id*="evaluate"]', '[class*="evaluate"]',
-        
-        # 교보문교용 제거 id
-        '[id*="faq"]', '[class*="faq"]',
+    if "yes24.com" in url:
+        selector = yes_selector
+        name_select = yes_name
+        price_select = yes_price
+        lnk_select = yes_lnk
 
+        name ="N/A"
+        price = "N/A"
+        link = "N/A"
+        img = "N/A"
 
-        #11번가용
-        '[id*="store_category"]', '[class*="store_category"]',
-
-        '[id*="btn"]', '[class*="btn"]',
-        '[id*="button"]', '[class*="button"]',
-
-        '[id*="header"]', '[class*="header"]',    # 헤더 관련
-        '[id*="footer"]', '[class*="footer"]',    # 푸터 관련
-        '[id*="menu"]', '[class*="menu"]',        # 메뉴
-        '[id*="modal"]', '[class*="modal"]',      # 팝업
-        #'[id*="banner"]', '[class*="banner"]',    # 배너
-        '[role="navigation"]', '[role="banner"]'  # ARIA 역할
-    ]
-    for selector in attribute_selectors:
         for element in soup.select(selector):
-            element.decompose()
+            # 내부에서 제거할 태그 처리
+            name_tag = element.select_one(name_select)
+            name = name_tag.get_text(strip=True) if name_tag else 'N/A'
+
+            price_tag = element.select_one(price_select)
+            price = price_tag.get_text(strip=True) if price_tag else 'N/A'
+
+            lnk = 'https://www.yes24.com' + element.select_one(lnk_select).get("href")
+            #이미지가 안나와서 상세페이지에서 이미지 추출해야함
+            response_datail = requests.get(lnk)
+            soup_detail = BeautifulSoup(response_datail.text, 'html.parser')
+
+
+            img_tag = soup_detail.select_one(yes_img)
+            img = img_tag.get("src") if img_tag else 'N/A'
+            extracted_texts.append(f"{name} \n {price}\n{lnk} \n {img}")
+
+
+    elif "aladin.co.kr" in url:
+        selector = ala_selector
+        name_lnk_select = ala_name_lnk
+        price_select = ala_price
+        img_select = ala_img
+
+        for element in soup.select(selector):
+            # 내부에서 제거할 태그 처리
+            name_link_tag = element.select_one(name_lnk_select)
+            name = name_link_tag.get_text(strip=True) if name_link_tag else 'N/A'
+
+            price_tag = element.select_one(price_select)
+            price = price_tag.get_text(strip=True) if price_tag else 'N/A'
+
+            lnk = name_link_tag.get("href") if name_link_tag else "N/A"
+
+            img = element.select_one(img_select)
+
+            extracted_texts.append(f"{name} \n {price}\n{lnk} \n {img}")
+
+
     
-    # 3. 텍스트 청소 강화
-    for element in soup.find_all(string=lambda text: isinstance(text, str)):
-        stripped = element.strip()
-        if not stripped or stripped in ('\n', '\r', '\t'):
-            element.extract()
-    
-    # 4. 빈 부모 태그 재귀적 제거
-    def remove_empty_parents(tag):
-        while tag.parent and not tag.parent.text.strip():
-            tag = tag.parent
-            tag.decompose()
-    
-    for tag in soup.find_all():
-        if not tag.text.strip() and not tag.attrs:
-            remove_empty_parents(tag)
-    return soup.get_text(separator='\n', strip=True)
+    return '\n'.join(extracted_texts)
+
 
 # 사용 예시
-#쿠팡
-url = 'https://www.yes24.com/product/search?domain=ALL&query=Toy%20Story%20%281995%29'
-url1 ="https://www.yes24.com/product/search?domain=ALL&query=Grumpier%20Old%20Men%20%281995%29"
-url2 ="https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Toy%20Story%20%281995%29"
-url3="https://www.dvd.co.kr/shop/shopbrand.html?search=Toy%20Story%20%281995%29"
-url4="https://search.kyobobook.co.kr/search?keyword=Toy%20Story%20%281995%29"
+url = 'https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Toy%20Story%20%281995%29%20blu%20ray'
 
-cleaned_text = clean_content(url)
-text = "안녕하세요! 이것은 파일에 쓰는 예제입니다."
+# 추출하고 싶은 태그/클래스/ID 지정
 
-# 'w' 모드는 파일을 새로 쓰거나 기존 내용을 덮어씀
-with open("example.txt", "w", encoding="utf-8") as f:
-    f.write(cleaned_text)
+extracted_text = clean_content_extract2(url)
 
-print("파일에 텍스트가 저장되었습니다.")
+with open("extracted_example.txt", "w", encoding="utf-8") as f:
+    f.write(extracted_text)
+
+print("선택한 태그의 텍스트가 파일에 저장되었습니다.")
