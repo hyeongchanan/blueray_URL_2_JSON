@@ -1,120 +1,146 @@
 import requests
 from bs4 import BeautifulSoup
+import json
+from concurrent.futures import ThreadPoolExecutor
 
+# 사이트별 셀렉터
 yes_selector = 'div.itemUnit'
-
 yes_name = 'a.gd_name'
 yes_lnk = 'a.lnk_img'
 yes_img = 'img.gImg'
 yes_price = 'em.yes_b'
+yes_auth = 'span.info_auth'
+yes_date = 'span.info_date'
 
-ala_selector = 'div.ss_book_box'
-
+ala_selector = 'div.ss_book_box>table'
 ala_name_lnk = 'a.bo3'
-#ala_lnk = 'a.bo3'
 ala_img = 'img.i_cover'
-ala_price = 'ss_p2'
+ala_price = 'span.ss_p2'
+ala_auth = 'div.ss_book_list>ul li:nth-of-type(2) a:last-of-type'
+ala_date = 'div.ss_book_list>ul li:nth-of-type(2)'
 
+kyo_selector = 'div.prod_area'
+kyo_name = 'div.auto_overflow_inner span:nth-of-type(2)'
+kyo_lnk = 'a.prod_link'
+kyo_img = 'span.img_box img'
+kyo_price = 'span.val'
+kyo_auth = 'a.text'
 
-kyo_selectors = [
-    'ul.prod_list div.horizontal'
-]
-
-yes_detail_selectors =[
-    '*.bgYUI',
-    'span.yPoint',
-    'span.iconC',
-    'em.yes_b',
-    'span.authPub',
-]
-
-ala_remove_selectors = [
-    'span.ss_p',
-
-]
-
-kyo_remove_selectors = [
-    'div.auto_overflow_footer',
-    'span.date',
-    'span.price_normal',
-    'span.percent',
-    'span.point',
-    'div.prod_bottom',
-    'div.auto_overflow_footer',
-    'div.prod_thumb_box',
-    'ul.swiper-wrapper'
-]
+def fetch_image(link):
+    """상세페이지에서 이미지 가져오기"""
+    try:
+        response_detail = requests.get(link, timeout=5)
+        soup_detail = BeautifulSoup(response_detail.text, 'html.parser')
+        img_tag = soup_detail.select_one(yes_img)
+        return img_tag.get("src") if img_tag else 'N/A'
+    except:
+        return 'N/A'
 
 def clean_content_extract2(url):
-
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
     
-    extracted_texts = []
+    extracted_data = []
 
     if "yes24.com" in url:
-        selector = yes_selector
-        name_select = yes_name
-        price_select = yes_price
-        lnk_select = yes_lnk
-
-        name ="N/A"
-        price = "N/A"
-        link = "N/A"
-        img = "N/A"
-
-        for element in soup.select(selector):
-            # 내부에서 제거할 태그 처리
-            name_tag = element.select_one(name_select)
+        tasks = []
+        for element in soup.select(yes_selector):
+            price_tag = element.select_one(yes_price)
+            if not price_tag:
+                continue
+            
+            price = price_tag.get_text(strip=True).replace("원", "").replace(",", "")
+            name_tag = element.select_one(yes_name)
             name = name_tag.get_text(strip=True) if name_tag else 'N/A'
+            lnk_tag = element.select_one(yes_lnk)
+            lnk = 'https://www.yes24.com' + lnk_tag.get("href") if lnk_tag else 'N/A'
+            auth_tag = element.select_one(yes_auth)
+            auth = auth_tag.get_text(strip=True) if auth_tag else 'N/A'
+            date_tag = element.select_one(yes_date)
+            date = date_tag.get_text(strip=True) if date_tag else 'N/A'
 
-            price_tag = element.select_one(price_select)
-            price = price_tag.get_text(strip=True) if price_tag else 'N/A'
+            tasks.append((name, price, lnk, auth, date))
 
-            lnk = 'https://www.yes24.com' + element.select_one(lnk_select).get("href")
-            #이미지가 안나와서 상세페이지에서 이미지 추출해야함
-            response_datail = requests.get(lnk)
-            soup_detail = BeautifulSoup(response_datail.text, 'html.parser')
+        # 병렬로 이미지 가져오기
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            links = [task[2] for task in tasks]
+            images = list(executor.map(fetch_image, links))
 
-
-            img_tag = soup_detail.select_one(yes_img)
-            img = img_tag.get("src") if img_tag else 'N/A'
-            extracted_texts.append(f"{name} \n {price}\n{lnk} \n {img}")
-
+        # 최종 데이터 조합
+        for i, (name, price, lnk, auth, date) in enumerate(tasks):
+            extracted_data.append({
+                "name": name,
+                "price": price,
+                "link": lnk,
+                "img": images[i],
+                "auth": auth,
+                "date": date
+            })
 
     elif "aladin.co.kr" in url:
-        selector = ala_selector
-        name_lnk_select = ala_name_lnk
-        price_select = ala_price
-        img_select = ala_img
-
-        for element in soup.select(selector):
-            # 내부에서 제거할 태그 처리
-            name_link_tag = element.select_one(name_lnk_select)
+        for element in soup.select(ala_selector):
+            price_tag = element.select_one(ala_price)
+            if not price_tag:
+                continue
+            price = price_tag.get_text(strip=True).replace("원", "").replace(",", "")
+            name_link_tag = element.select_one(ala_name_lnk)
             name = name_link_tag.get_text(strip=True) if name_link_tag else 'N/A'
-
-            price_tag = element.select_one(price_select)
-            price = price_tag.get_text(strip=True) if price_tag else 'N/A'
-
             lnk = name_link_tag.get("href") if name_link_tag else "N/A"
+            img_tag = element.select_one(ala_img)
+            img = img_tag.get("src") if img_tag else 'N/A'
 
-            img = element.select_one(img_select)
+            # auth와 date 분리
+            date_tag = element.select_one(ala_date)
+            auth_date = date_tag.get_text(strip=True) if date_tag else 'N/A'
+            parts = [p.strip() for p in auth_date.split("|")]
+            auth = parts[-2] if len(parts) >= 2 else 'N/A'
+            date = parts[-1] if len(parts) >= 1 else 'N/A'
 
-            extracted_texts.append(f"{name} \n {price}\n{lnk} \n {img}")
+            extracted_data.append({
+                "name": name,
+                "price": price,
+                "link": lnk,
+                "img": img,
+                "auth": auth,
+                "date": date
+            })
 
+    elif "kyobobook.co.kr" in url:
+        for element in soup.select(kyo_selector):
+            price_tag = element.select_one(kyo_price)
+            if not price_tag:
+                continue
+            price = price_tag.get_text(strip=True).replace("원", "").replace(",", "")
+            name_tag = element.select_one(kyo_name)
+            name = name_tag.get_text(strip=True) if name_tag else 'N/A'
+            lnk_tag = element.select_one(kyo_lnk)
+            lnk = lnk_tag.get("href") if lnk_tag else "N/A"
+            img_tag = element.select_one(kyo_img)
+            img = img_tag.get("src") if img_tag else 'N/A'
+            auth_tag = element.select_one(kyo_auth)
+            auth = auth_tag.get_text(strip=True) if auth_tag else 'N/A'
+            date = 'N/A'  # 교보는 날짜 정보가 없으면 N/A
 
-    
-    return '\n'.join(extracted_texts)
+            extracted_data.append({
+                "name": name,
+                "price": price,
+                "link": lnk,
+                "img": img,
+                "auth": auth,
+                "date": date
+            })
 
+    return extracted_data
 
 # 사용 예시
-url = 'https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Toy%20Story%20%281995%29%20blu%20ray'
 
-# 추출하고 싶은 태그/클래스/ID 지정
+#url = 'https://search.kyobobook.co.kr/search?keyword=Jumanji&target=total&totalType=hottracks&gbCode=TOT&cat2=%EC%9D%8C%EB%B0%98%2FDVD%40HOTTRACKS%40%40BLU-RAY%40BLURAY&cname=Jumanji'
+url = 'https://www.yes24.com/product/search?domain=ALL&query=Toy%20Story%20%281995%29%20blu%20ray'
+#url = 'https://search.kyobobook.co.kr/search?keyword=Toy%20Story&gbCode=TOT&target=total'
+extracted_data = clean_content_extract2(url)
 
-extracted_text = clean_content_extract2(url)
+# JSON 파일로 저장
+with open("extracted_example.json", "w", encoding="utf-8") as f:
+    json.dump(extracted_data, f, ensure_ascii=False, indent=4)
 
-with open("extracted_example.txt", "w", encoding="utf-8") as f:
-    f.write(extracted_text)
-
-print("선택한 태그의 텍스트가 파일에 저장되었습니다.")
+print("데이터가 JSON 형식으로 저장되었습니다.")
