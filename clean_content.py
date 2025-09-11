@@ -2,6 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 import json
 from concurrent.futures import ThreadPoolExecutor
+from parse_bluray_title import parse_bluray_title
+import openai
+
+openai.api_key = "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"
+client = openai.OpenAI(api_key = openai.api_key)
 
 # 사이트별 셀렉터
 yes_selector = 'div.itemUnit'
@@ -36,6 +41,28 @@ def fetch_image(link):
     except:
         return 'N/A'
 
+def parse_bluray_titles_batch(titles):
+    """배치 OpenAI API 호출"""
+    prompt = f"""
+Extract each Blu-ray title into JSON with the following keys:
+- movie_name
+- region_code (or "N/A")
+- resolution (or "N/A")
+- limited_edition (true/false)
+
+Titles: {json.dumps(titles, ensure_ascii=False)}
+
+Return a JSON array where each element corresponds to a title in order.
+Return JSON only.
+"""
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0
+    )
+    result_str = response.choices[0].message.content.strip()
+    return json.loads(result_str)
+
 def clean_content_extract2(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -66,18 +93,28 @@ def clean_content_extract2(url):
             links = [task[2] for task in tasks]
             images = list(executor.map(fetch_image, links))
 
+        # 모든 제목을 모아서 배치 API 호출
+        titles = [t[0] for t in tasks]
+        bluray_infos = parse_bluray_titles_batch(titles)
+
         # 최종 데이터 조합
-        for i, (name, price, lnk, auth, date) in enumerate(tasks):
-            extracted_data.append({
-                "name": name,
+        for i, (task, bluray_info) in enumerate(zip(tasks, bluray_infos)):
+            name_raw, price, lnk, auth, date = task
+            item = {
+                **bluray_info,
                 "price": price,
                 "link": lnk,
-                "img": images[i],
+                "img": images[i] if i < len(images) else 'N/A',
                 "auth": auth,
                 "date": date
-            })
+            }
+            extracted_data.append(item)
+
+        return extracted_data
+
 
     elif "aladin.co.kr" in url:
+        tasks = []
         for element in soup.select(ala_selector):
             price_tag = element.select_one(ala_price)
             if not price_tag:
@@ -96,16 +133,28 @@ def clean_content_extract2(url):
             auth = parts[-2] if len(parts) >= 2 else 'N/A'
             date = parts[-1] if len(parts) >= 1 else 'N/A'
 
-            extracted_data.append({
-                "name": name,
+            tasks.append((name, price, lnk, img, auth, date))
+
+        # 모든 제목을 모아서 배치 API 호출
+        titles = [t[0] for t in tasks]
+        bluray_infos = parse_bluray_titles_batch(titles)
+
+        # 최종 데이터 조합
+        for i, (task, bluray_info) in enumerate(zip(tasks, bluray_infos)):
+            name_raw, price, lnk, img, auth, date = task
+            item = {
+                **bluray_info,  # movie_name, region_code, resolution, limited_edition 포함
                 "price": price,
                 "link": lnk,
                 "img": img,
                 "auth": auth,
                 "date": date
-            })
+            }
+            extracted_data.append(item)
+
 
     elif "kyobobook.co.kr" in url:
+        tasks = []
         for element in soup.select(kyo_selector):
             price_tag = element.select_one(kyo_price)
             if not price_tag:
@@ -114,33 +163,42 @@ def clean_content_extract2(url):
             name_tag = element.select_one(kyo_name)
             name = name_tag.get_text(strip=True) if name_tag else 'N/A'
             lnk_tag = element.select_one(kyo_lnk)
-            lnk = lnk_tag.get("href") if lnk_tag else "N/A"
+            lnk = lnk_tag.get("href") if lnk_tag else 'N/A'
             img_tag = element.select_one(kyo_img)
             img = img_tag.get("src") if img_tag else 'N/A'
             auth_tag = element.select_one(kyo_auth)
             auth = auth_tag.get_text(strip=True) if auth_tag else 'N/A'
-            date = 'N/A'  # 교보는 날짜 정보가 없으면 N/A
+            date = 'N/A'  # 날짜 정보가 없으면 N/A
 
-            extracted_data.append({
-                "name": name,
+            tasks.append((name, price, lnk, img, auth, date))
+
+        # 모든 제목을 모아서 배치 API 호출
+        titles = [t[0] for t in tasks]
+        bluray_infos = parse_bluray_titles_batch(titles)
+
+        # 최종 데이터 조합
+        for i, (task, bluray_info) in enumerate(zip(tasks, bluray_infos)):
+            name_raw, price, lnk, img, auth, date = task
+            item = {
+                **bluray_info,  # movie_name, region_code, resolution, limited_edition 포함
                 "price": price,
                 "link": lnk,
                 "img": img,
                 "auth": auth,
                 "date": date
-            })
+            }
+            extracted_data.append(item)
 
-    return extracted_data
 
 # 사용 예시
 
-#url = 'https://search.kyobobook.co.kr/search?keyword=Jumanji&target=total&totalType=hottracks&gbCode=TOT&cat2=%EC%9D%8C%EB%B0%98%2FDVD%40HOTTRACKS%40%40BLU-RAY%40BLURAY&cname=Jumanji'
-url = 'https://www.yes24.com/product/search?domain=ALL&query=Toy%20Story%20%281995%29%20blu%20ray'
-#url = 'https://search.kyobobook.co.kr/search?keyword=Toy%20Story&gbCode=TOT&target=total'
+#url = 'https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=%EC%8A%A4%EC%A6%88%EB%A9%94+%EB%B8%94%EB%A3%A8%EB%A0%88%EC%9D%B4'
+#url = 'https://www.yes24.com/product/search?domain=ALL&query=Toy%20Story%20%281995%29%20blu%20ray'
+url = 'https://search.kyobobook.co.kr/search?keyword=Now%20and%20Then%20%20blu%20ray&gbCode=TOT&target=total'
 extracted_data = clean_content_extract2(url)
 
 # JSON 파일로 저장
-with open("extracted_example.json", "w", encoding="utf-8") as f:
+with open("extracted_example2.json", "w", encoding="utf-8") as f:
     json.dump(extracted_data, f, ensure_ascii=False, indent=4)
 
 print("데이터가 JSON 형식으로 저장되었습니다.")
