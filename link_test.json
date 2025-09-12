@@ -1,47 +1,27 @@
 {
-   "1::Toy Story (1995)": {
-    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Toy%20Story%20%281995%29%20blu%20ray",
-    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Toy%20Story%20%281995%29%20blu%20ray",
-    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Toy%20Story%20%281995%29%20blu%20ray"
+ "1::Toy Story (1995)": {
+    "yes24": "https://www.yes24.com/product/search?domain=DVD&query=Toy%20Story%20%281995%29&page=1&size=24&dispNo2=004001052",
+    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&KeyFullWord=Toy%20Story%20%281995%29&chkKeyTitle=on&SearchFieldEnable=1",
+    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Toy%20Story&cat2=%EC%9D%8C%EB%B0%98%2FDVD%40HOTTRACKS%40%40BLU-RAY%40BLURAY&cname=%22Toy%20Story%22"
   },
   "2::Jumanji (1995)": {
-    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Jumanji%20%281995%29%20blu%20ray",
-    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Jumanji%20%281995%29%20blu%20ray",
-    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Jumanji%20%281995%29%20blu%20ray"
+    "yes24": "https://www.yes24.com/product/search?domain=DVD&query=Jumanji%20%281995%29&page=1&size=24&dispNo2=004001052",
+    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&KeyFullWord=Jumanji%20%281995%29&chkKeyTitle=on&SearchFieldEnable=1",
+    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Jumanji&cat2=%EC%9D%8C%EB%B0%98%2FDVD%40HOTTRACKS%40%40BLU-RAY%40BLURAY&cname=%22Jumanji%22"
   },
   "3::Grumpier Old Men (1995)": {
-    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Grumpier%20Old%20Men%20%281995%29%20blu%20ray",
-    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Grumpier%20Old%20Men%20%281995%29%20blu%20ray",
-    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Grumpier%20Old%20Men%20%281995%29%20blu%20ray"
+    "yes24": "https://www.yes24.com/product/search?domain=DVD&query=Grumpier%20Old%20Men%20%281995%29&page=1&size=24&dispNo2=004001052",
+    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&KeyFullWord=Grumpier%20Old%20Men%20%281995%29&chkKeyTitle=on&SearchFieldEnable=1",
+    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Grumpier%20Old%20Men&cat2=%EC%9D%8C%EB%B0%98%2FDVD%40HOTTRACKS%40%40BLU-RAY%40BLURAY&cname=%22Grumpier%20Old%20Men%22"
   },
   "4::Waiting to Exhale (1995)": {
-    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Waiting%20to%20Exhale%20%281995%29%20blu%20ray",
-    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Waiting%20to%20Exhale%20%281995%29%20blu%20ray",
-    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Waiting%20to%20Exhale%20%281995%29%20blu%20ray"
+    "yes24": "https://www.yes24.com/product/search?domain=DVD&query=Waiting%20to%20Exhale%20%281995%29&page=1&size=24&dispNo2=004001052",
+    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&KeyFullWord=Waiting%20to%20Exhale%20%281995%29&chkKeyTitle=on&SearchFieldEnable=1",
+    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Waiting%20to%20Exhale&cat2=%EC%9D%8C%EB%B0%98%2FDVD%40HOTTRACKS%40%40BLU-RAY%40BLURAY&cname=%22Waiting%20to%20Exhale%22"
   },
   "5::Father of the Bride Part II (1995)": {
-    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Father%20of%20the%20Bride%20Part%20II%20%281995%29%20blu%20ray",
-    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Father%20of%20the%20Bride%20Part%20II%20%281995%29%20blu%20ray",
-    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Father%20of%20the%20Bride%20Part%20II%20%281995%29%20blu%20ray"
-  },
-  "6::Heat (1995)": {
-    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Heat%20%281995%29%20blu%20ray",
-    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Heat%20%281995%29%20blu%20ray",
-    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Heat%20%281995%29%20blu%20ray"
-  },
-  "7::Sabrina (1995)": {
-    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Sabrina%20%281995%29%20blu%20ray",
-    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Sabrina%20%281995%29%20blu%20ray",
-    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Sabrina%20%281995%29%20blu%20ray"
-  },
-  "8::Tom and Huck (1995)": {
-    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Tom%20and%20Huck%20%281995%29%20blu%20ray",
-    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Tom%20and%20Huck%20%281995%29%20blu%20ray",
-    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Tom%20and%20Huck%20%281995%29%20blu%20ray"
-  },
-  "9::Sudden Death (1995)": {
-    "yes24": "https://www.yes24.com/product/search?domain=ALL&query=Sudden%20Death%20%281995%29%20blu%20ray",
-    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=Sudden%20Death%20%281995%29%20blu%20ray",
-    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Sudden%20Death%20%281995%29%20blu%20ray"
+    "yes24": "https://www.yes24.com/product/search?domain=DVD&query=Father%20of%20the%20Bride%20Part%20II%20%281995%29&page=1&size=24&dispNo2=004001052",
+    "aladin": "https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&KeyFullWord=Father%20of%20the%20Bride%20Part%20II%20%281995%29&chkKeyTitle=on&SearchFieldEnable=1",
+    "kyobo": "https://search.kyobobook.co.kr/search?keyword=Father%20of%20the%20Bride%20Part%20II&cat2=%EC%9D%8C%EB%B0%98%2FDVD%40HOTTRACKS%40%40BLU-RAY%40BLURAY&cname=%22Father%20of%20the%20Bride%20Part%20II%22"
   }
 }

@@ -16,6 +16,7 @@ yes_img = 'img.gImg'
 yes_price = 'em.yes_b'
 yes_auth = 'span.info_auth'
 yes_date = 'span.info_date'
+yes_des = 'div.txt_des'
 
 ala_selector = 'div.ss_book_box>table'
 ala_name_lnk = 'a.bo3'
@@ -24,12 +25,14 @@ ala_price = 'span.ss_p2'
 ala_auth = 'div.ss_book_list>ul li:nth-of-type(2) a:last-of-type'
 ala_date = 'div.ss_book_list>ul li:nth-of-type(2)'
 
-kyo_selector = 'div.prod_area'
+kyo_selector = 'ul.prod_list div.horizontal'
 kyo_name = 'div.auto_overflow_inner span:nth-of-type(2)'
 kyo_lnk = 'a.prod_link'
 kyo_img = 'span.img_box img'
 kyo_price = 'span.val'
 kyo_auth = 'a.text'
+
+
 
 def fetch_image(link):
     """상세페이지에서 이미지 가져오기"""
@@ -71,7 +74,18 @@ def clean_content_extract2(url):
 
     if "yes24.com" in url:
         tasks = []
-        for element in soup.select(yes_selector):
+
+        
+        if soup.select(yes_des):
+            print("검색  결과가 없습니다")
+            return None
+        
+        elements = soup.select(yes_selector)
+
+        if elements == []:
+            print("검색  결과가 없습니다")
+            return None
+        for element in elements:
             price_tag = element.select_one(yes_price)
             if not price_tag:
                 continue
@@ -115,7 +129,11 @@ def clean_content_extract2(url):
 
     elif "aladin.co.kr" in url:
         tasks = []
-        for element in soup.select(ala_selector):
+        elements = soup.select(ala_selector)
+        if elements == []:
+            print("검색  결과가 없습니다")
+            return None
+        for element in elements:
             price_tag = element.select_one(ala_price)
             if not price_tag:
                 continue
@@ -134,6 +152,7 @@ def clean_content_extract2(url):
             date = parts[-1] if len(parts) >= 1 else 'N/A'
 
             tasks.append((name, price, lnk, img, auth, date))
+        
 
         # 모든 제목을 모아서 배치 API 호출
         titles = [t[0] for t in tasks]
@@ -151,12 +170,20 @@ def clean_content_extract2(url):
                 "date": date
             }
             extracted_data.append(item)
+        return extracted_data
 
 
     elif "kyobobook.co.kr" in url:
+        elements = soup.select(kyo_selector)
+
+        if elements == []:
+            print("검색  결과가 없습니다")
+            return None
         tasks = []
-        for element in soup.select(kyo_selector):
+        
+        for element in elements:
             price_tag = element.select_one(kyo_price)
+            
             if not price_tag:
                 continue
             price = price_tag.get_text(strip=True).replace("원", "").replace(",", "")
@@ -175,7 +202,6 @@ def clean_content_extract2(url):
         # 모든 제목을 모아서 배치 API 호출
         titles = [t[0] for t in tasks]
         bluray_infos = parse_bluray_titles_batch(titles)
-
         # 최종 데이터 조합
         for i, (task, bluray_info) in enumerate(zip(tasks, bluray_infos)):
             name_raw, price, lnk, img, auth, date = task
@@ -188,13 +214,14 @@ def clean_content_extract2(url):
                 "date": date
             }
             extracted_data.append(item)
-
+        return extracted_data
+    return extracted_data
 
 # 사용 예시
-
+"""
 #url = 'https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=DVD&SearchWord=%EC%8A%A4%EC%A6%88%EB%A9%94+%EB%B8%94%EB%A3%A8%EB%A0%88%EC%9D%B4'
-#url = 'https://www.yes24.com/product/search?domain=ALL&query=Toy%20Story%20%281995%29%20blu%20ray'
-url = 'https://search.kyobobook.co.kr/search?keyword=Now%20and%20Then%20%20blu%20ray&gbCode=TOT&target=total'
+url = 'https://www.yes24.com/product/search?domain=DVD&query=Jacket%2C%20The%20%282005%29&page=1&size=24&dispNo2=004001052'
+#url = 'https://search.kyobobook.co.kr/search?keyword=%EB%B8%94%EB%A3%A8%EB%A0%88%EC%9D%B4%20%E3%85%81%E3%84%B4%E3%85%87%E3%84%BB%E3%85%87%E3%84%BB%E3%84%B4%E3%84%B9%E3%85%87&gbCode=TOT&target=total'
 extracted_data = clean_content_extract2(url)
 
 # JSON 파일로 저장
@@ -202,3 +229,4 @@ with open("extracted_example2.json", "w", encoding="utf-8") as f:
     json.dump(extracted_data, f, ensure_ascii=False, indent=4)
 
 print("데이터가 JSON 형식으로 저장되었습니다.")
+"""
